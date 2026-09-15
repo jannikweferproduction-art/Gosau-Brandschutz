@@ -1,0 +1,25 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [claude/quirky-planck-s5otnh]
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: FTP deploy to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
