@@ -654,12 +654,81 @@ section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
 
 /* ---- Page intro (non-home pages) ---- */
 .page-intro {
+  position: relative;
+  overflow: hidden;
   background: var(--color-ink);
+  background-image: radial-gradient(circle at 88% 20%, rgba(224,0,8,0.35), transparent 55%);
   color: #fff;
   padding: 3.2rem 0 2.6rem;
 }
+.page-intro::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -50px;
+  width: 260px;
+  height: 260px;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTEyIDJjMSAzLTIgNC0yIDdhNCA0IDAgMCAwIDggMGMwLTEtLjMtMi0xLTMgMiAxIDMgMyAzIDZhNiA2IDAgMCAxLTEyIDBjMC01IDMtNiA0LTEweiIvPjwvc3ZnPg==") no-repeat center / contain;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.page-intro .container { position: relative; }
 .page-intro h1 { color: #fff; margin-bottom: 0.35em; }
 .page-intro p { color: rgba(255,255,255,0.82); max-width: 62ch; margin: 0; }
+
+/* ---- Bio subsections & stats (Über mich) ---- */
+.subhead {
+  display: inline-block;
+  font-size: 1.05rem;
+  color: var(--color-ink);
+  border-bottom: 2px solid var(--color-red);
+  padding-bottom: 0.3em;
+  margin: 1.7em 0 0.6em;
+}
+.stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.4rem;
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  padding: 0.9rem 1rem;
+  box-shadow: var(--shadow-s);
+}
+.stat-item .icon {
+  flex: none;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-orange), var(--color-red));
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.stat-item strong { display: block; font-size: 0.98rem; color: var(--color-ink); }
+.stat-item span { display: block; font-size: 0.82rem; color: var(--color-text-muted); }
+
+/* ---- CTA band phone line ---- */
+.cta-band__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+.cta-band__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: rgba(255,255,255,0.92);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.cta-band__phone svg { flex: none; }
+.cta-band__phone:hover { color: #fff; }
 .breadcrumb {
   font-size: 0.85rem;
   color: rgba(255,255,255,0.6);
