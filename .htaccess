@@ -9,20 +9,28 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 # Browser caching for static assets
+# NOTE: kept deliberately short while the site is still under active
+# development (deployed via automatic FTP push) so that every change
+# shows up immediately instead of being served from a stale cache.
+# Once the site is stable/launched on its final domain, these can be
+# raised again (e.g. images/css/js to weeks or months).
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/x-icon "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType image/webp "access plus 10 minutes"
+  ExpiresByType image/png "access plus 10 minutes"
+  ExpiresByType image/jpg "access plus 10 minutes"
+  ExpiresByType image/jpeg "access plus 10 minutes"
+  ExpiresByType image/x-icon "access plus 10 minutes"
+  ExpiresByType text/css "access plus 10 minutes"
+  ExpiresByType application/javascript "access plus 10 minutes"
+  ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
 <IfModule mod_headers.c>
   <FilesMatch "\.(webp|png|jpg|jpeg|ico|css|js)$">
-    Header set Cache-Control "public, max-age=2592000"
+    Header set Cache-Control "public, max-age=600"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>
