@@ -147,8 +147,9 @@ section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  flex-shrink: 0;
 }
-.brand img { height: 46px; width: auto; }
+.brand img { height: 46px; width: auto; flex-shrink: 0; }
 .brand-name {
   font-weight: 800;
   color: var(--color-ink);
@@ -637,7 +638,7 @@ section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
 }
 .footer-grid h3 { color: #fff; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1em; }
 .footer-brand { display: flex; align-items: center; gap: 0.7em; margin-bottom: 1rem; }
-.footer-brand img { height: 40px; }
+.footer-brand img { height: 40px; width: auto; flex-shrink: 0; }
 .footer-brand strong { color: #fff; }
 .site-footer a { color: rgba(255,255,255,0.75); }
 .site-footer a:hover { color: #fff; }
