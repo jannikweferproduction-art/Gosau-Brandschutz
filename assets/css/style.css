@@ -468,17 +468,69 @@ section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
 }
 .qual-card li svg { flex: none; color: var(--color-orange); margin-top: 0.25em; }
 
-/* ---- Partners / references ---- */
-.tag-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-.tag-cloud span {
+/* ---- Certificate ---- */
+.cert-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.6rem;
+  align-items: center;
   background: #fff;
   border: 1px solid var(--color-border);
-  padding: 0.55em 1.1em;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.92rem;
-  color: var(--color-ink);
+  border-radius: var(--radius-m);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-s);
+  margin-top: 1.4rem;
 }
+.cert-card .cert-thumb {
+  display: block;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-s);
+  transition: transform .15s ease;
+}
+.cert-card .cert-thumb:hover { transform: scale(1.03); }
+.cert-card h3 { margin-bottom: 0.3em; }
+.cert-card .meta { color: var(--color-text-muted); font-size: 0.86rem; margin-bottom: 1rem; }
+@media (max-width: 700px) {
+  .cert-card { grid-template-columns: 1fr; text-align: center; }
+  .cert-card .cert-thumb { margin: 0 auto; max-width: 160px; }
+}
+
+/* ---- Partners / references ---- */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+}
+.logo-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  height: 84px;
+  padding: 0.8rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-card img {
+  max-height: 42px;
+  max-width: 100%;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.72;
+  transition: filter .2s ease, opacity .2s ease;
+}
+.logo-card:hover img,
+.logo-card:focus-within img { filter: none; opacity: 1; }
+.logo-card.text-only {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  text-align: center;
+  line-height: 1.3;
+  transition: color .2s ease;
+}
+.logo-card.text-only:hover { color: var(--color-ink); }
 .partner-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
